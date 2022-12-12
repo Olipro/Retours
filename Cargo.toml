@@ -1,0 +1,17 @@
+[package]
+name = "retours"
+version = "0.0.1"
+edition = "2021"
+build = "build.rs"
+license = "BSL-1.0"
+description = "Experimental. You probably don't want to use this."
+homepage = "https://crates.io/crates/retours"
+repository = "https://github.com/Olipro/Retours"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[build-dependencies]
+cmake = "0.1.49"
