@@ -52,7 +52,7 @@ impl Detour {
     }
 
     pub fn trampoline(&self) -> Result<*mut(), NullError> {
-        if self.trampoline == null_mut() { Ok(self.trampoline) } else { Err(NullError{})}
+        if self.trampoline != null_mut() { Ok(self.trampoline) } else { Err(NullError{})}
     }
 }
 
@@ -104,7 +104,7 @@ mod tests {
         });
         assert_eq!(detouree(5, 2), 3);
         unsafe {
-            let f: fn(u32, u32) -> u32 = transmute(det.trampoline);
+            let f: fn(u32, u32) -> u32 = transmute(det.trampoline().unwrap());
             assert_eq!(f(4,4), 8);
         }
     }
