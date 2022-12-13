@@ -1,3 +1,4 @@
+use std::fmt;
 use std::ptr::null_mut;
 
 extern "system" {
@@ -32,7 +33,14 @@ macro_rules! get_trampoline {
     )
 }
 
+#[derive(Debug, Clone)]
 pub struct NullError;
+
+impl fmt::Display for NullError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "Trampoline is null. The detour likely failed to attach.")
+    }
+}
 
 impl Detour {
     pub fn new(interceptor: *mut(), interceptee: *mut()) -> Self {
