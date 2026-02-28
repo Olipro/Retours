@@ -5,7 +5,7 @@ include(ExternalProject)
 
 ExternalProject_Add(DetoursSrc
         GIT_REPOSITORY https://github.com/microsoft/Detours.git
-        GIT_TAG master
+        GIT_TAG main
         GIT_SHALLOW YES
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ""
